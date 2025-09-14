@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Activity 3.3 - Triangle Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #9face6);
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+    .result-box {
+      margin-top: 40px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      display: inline-block;
+      min-width: 300px;
+    }
+    .result-box h2 {
+      color: #333;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #222;
+    }
+  </style>
+  <script>
+    function determineTriangle(a, b, c) {
+      a = Number(a);
+      b = Number(b);
+      c = Number(c);
+
+      let result = "";
+
+      if (a <= 0 || b <= 0 || c <= 0 || (a + b <= c) || (a + c <= b) || (b + c <= a)) {
+        result = "Invalid triangle sides. Please enter valid positive numbers.";
+      } else if (a === b && b === c) {
+        result = "The triangle is EQUILATERAL.";
+      } else if (a === b || b === c || a === c) {
+        result = "The triangle is ISOSCELES.";
+      } else {
+        result = "The triangle is SCALENE.";
+      }
+
+      // Show in alert
+      window.alert(result + "\n\nCreated by: Valance V. Liberato, BSCPE 4\nInstructor: Lozada, Paolo Roberto");
+
+      // Show in result box
+      document.getElementById("output").innerHTML = "<h2>" + result + "</h2>";
+    }
+
+    function main() {
+      var a = prompt("Enter the length of side a:");
+      var b = prompt("Enter the length of side b:");
+      var c = prompt("Enter the length of side c:");
+
+      if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        window.alert("Please enter valid numbers only!");
+      } else {
+        determineTriangle(a, b, c);
+      }
+    }
+  </script>
+</head>
+<body onload="main()">
+  <h1>Triangle Checker</h1>
+  <div class="result-box">
+    <p id="output">Your triangle result will appear here after input.</p>
+  </div>
+
+  <div class="footer">
+    Created by: Valance V. Liberato, BSCPE 4 <br>
+    Instructor: Lozada, Paolo Roberto
+  </div>
+</body>
+</html>
