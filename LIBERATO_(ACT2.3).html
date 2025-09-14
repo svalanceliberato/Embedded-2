@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Frameset Simulation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #banner {
+      background: lightblue;
+      text-align: center;
+      padding: 15px;
+    }
+    #container {
+      display: flex;
+      height: calc(100vh - 120px);
+    }
+    #menu {
+      width: 200px;
+      background: #f0f0f0;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+    #menu a {
+      display: block;
+      margin: 12px 0;
+      text-decoration: none;
+      color: darkblue;
+      font-weight: bold;
+    }
+    #menu a:hover {
+      color: red;
+    }
+    #content {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    td, th {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: lightgray;
+    }
+  </style>
+</head>
+<body>
+  <!-- Banner -->
+  <div id="banner">
+    <h1>Student Project Website</h1>
+    <h2>Valance V. Liberato - BSCpE 4</h2>
+    <h3>Instructor: Lozada, Paolo Roberto</h3>
+  </div>
+
+  <!-- Frames simulation -->
+  <div id="container">
+    <!-- Menu -->
+    <div id="menu">
+      <a href="#home" onclick="showPage('home')">Home</a>
+      <a href="#resume" onclick="showPage('resume')">Resume</a>
+      <a href="#schedule" onclick="showPage('schedule')">Schedule</a>
+    </div>
+
+    <!-- Content -->
+    <div id="content">
+      <!-- Home -->
+      <div id="home" class="page">
+        <h2>Welcome!</h2>
+        <p>This is the home page. Use the menu on the left to view my resume and schedule.</p>
+        <p><b>Prepared by:</b> Valance V. Liberato, BSCpE 4</p>
+        <p><b>Instructor:</b> Lozada, Paolo Roberto</p>
+      </div>
+
+      <!-- Resume -->
+      <div id="resume" class="page" style="display:none;">
+        <h2>Mr. Duck - Resume</h2>
+        <p><b>Name:</b> Mr. Duck</p>
+        <p><b>Address:</b> Pondside, Ducktown</p>
+        <p><b>Email:</b> mrduck@email.com</p>
+        <hr>
+        <h3>Objective</h3>
+        <p>To swim across opportunities and quack my way to success.</p>
+        <h3>Education</h3>
+        <p>Bachelor of Science in Pond Management</p>
+        <h3>Experience</h3>
+        <ul>
+          <li>Lead Swimmer, Duck Pond Olympics</li>
+          <li>Professional Bread Collector</li>
+        </ul>
+        <hr>
+        <p><b>Prepared by:</b> Valance V. Liberato, BSCpE 4</p>
+        <p><b>Instructor:</b> Lozada, Paolo Roberto</p>
+      </div>
+
+      <!-- Schedule -->
+      <div id="schedule" class="page" style="display:none;">
+        <h2>Prime-Time TV Schedule (Philippines)</h2>
+        <table>
+          <tr>
+            <th>Time</th>
+            <th>Channel 2</th>
+            <th>GMA 7</th>
+            <th>TV5</th>
+          </tr>
+          <tr>
+            <td>7:00 - 7:30 PM</td>
+            <td rowspan="2">News Patrol</td>
+            <td rowspan="2">24 Oras</td>
+            <td>Anime Block</td>
+          </tr>
+          <tr>
+            <td>7:30 - 8:00 PM</td>
+            <td rowspan="2">Kapatid News</td>
+          </tr>
+          <tr>
+            <td>8:00 - 8:30 PM</td>
+            <td rowspan="2">Teleserye A</td>
+            <td rowspan="2">Teleserye B</td>
+          </tr>
+          <tr>
+            <td>8:30 - 9:00 PM</td>
+            <td>Game Show</td>
+          </tr>
+          <tr>
+            <td>9:00 - 9:30 PM</td>
+            <td rowspan="2">Drama Series</td>
+            <td rowspan="2">Investigative Show</td>
+            <td>Movie Special</td>
+          </tr>
+          <tr>
+            <td>9:30 - 10:00 PM</td>
+            <td>Comedy Sitcom</td>
+          </tr>
+        </table>
+        <hr>
+        <p><b>Prepared by:</b> Valance V. Liberato, BSCpE 4</p>
+        <p><b>Instructor:</b> Lozada, Paolo Roberto</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script to switch pages -->
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(function(page) {
+        page.style.display = 'none';
+      });
+      document.getElementById(pageId).style.display = 'block';
+    }
+  </script>
+</body>
+</html>
